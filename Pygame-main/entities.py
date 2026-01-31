@@ -58,30 +58,4 @@ class NPC:
         self.x += self.vx
         self.y += self.vy
 
-        self.x, self.y, x_edge, y_edge = bounds.clamp(self.x, self.y)
-
-        if x_edge:
-            self.vx *= -1
-        if y_edge:
-            self.vy *= -1
-
-
-class Player:
-    def __init__(self, x: float, y: float, speed: float = 1, radius: float = 6):
-        self.x = x
-        self.y = y
-        self.speed = speed
-        self.radius = radius
-
-    def update(self, pressed: set[str], bounds):
-        if "w" in pressed:
-            self.y -= self.speed
-        if "s" in pressed:
-            self.y += self.speed
-        if "a" in pressed:
-            self.x -= self.speed
-        if "d" in pressed:
-            self.x += self.speed
-
-        # Keep inside bounds
-        self.x, self.y, _, _ = bounds.clamp(self.x, self.y)
+        self.x, self.y, x_ed_
